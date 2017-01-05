@@ -19,6 +19,10 @@ class Shared {
     return this.SatellizerStorage.get(this.prefixedTokenName);
   }
 
+  getRole(): string {
+    return this.SatellizerStorage.get(this.SatellizerConfig.roleName);
+  }
+
   getPayload(): any {
     const token = this.SatellizerStorage.get(this.prefixedTokenName);
 
@@ -39,6 +43,7 @@ class Shared {
     const accessToken = response && response.access_token;
 
     let token;
+    let role;
 
     if (accessToken) {
       if (angular.isObject(accessToken) && angular.isObject(accessToken.data)) {
@@ -51,15 +56,22 @@ class Shared {
     if (!token && response) {
       const tokenRootData = tokenRoot && tokenRoot.split('.').reduce((o, x) => o[x], response.data);
       token = tokenRootData ? tokenRootData[tokenName] : response.data && response.data[tokenName];
+      role = response.data && response.data[this.SatellizerConfig.roleName]
     }
 
     if (token) {
       this.SatellizerStorage.set(this.prefixedTokenName, token);
     }
+    if (role) {
+      this.SatellizerStorage.set(this.SatellizerConfig.roleName, role);
+    }
   }
 
   removeToken(): void {
     this.SatellizerStorage.remove(this.prefixedTokenName);
+    this.SatellizerStorage.remove(this.SatellizerConfig.roleName);
+
+    
   }
 
   isAuthenticated(): boolean {
@@ -85,6 +97,7 @@ class Shared {
 
   logout(): angular.IPromise<void> {
     this.SatellizerStorage.remove(this.prefixedTokenName);
+    this.SatellizerStorage.remove(this.SatellizerConfig.roleName);
     return this.$q.when();
   }
 
