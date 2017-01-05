@@ -8,6 +8,7 @@ export default class Config {
   signupUrl = '/auth/signup';
   unlinkUrl = '/auth/unlink/';
   tokenName = 'token';
+  roleName = 'role';
   tokenPrefix = 'satellizer';
   tokenHeader = 'Authorization';
   tokenType = 'Bearer';
