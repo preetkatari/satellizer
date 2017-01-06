@@ -1,16 +1,5 @@
-![Project Logo](http://i.imgur.com/yutNy7x.jpg)
-
-# [Satellizer](https://github.com/sahat/satellizer/)
-
-[![Donate](https://img.shields.io/badge/paypal-donate-blue.svg)](https://paypal.me/sahat)
-[![Join the chat at https://gitter.im/sahat/satellizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sahat/satellizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](http://img.shields.io/travis/sahat/satellizer.svg?style=flat)](https://travis-ci.org/sahat/satellizer)
-[![npm version](https://badge.fury.io/js/satellizer.svg)](https://badge.fury.io/js/satellizer)
-[![Book session on Codementor](https://cdn.codementor.io/badges/book_session_github.svg)](https://www.codementor.io/sahatyalkabov?utm_source=github&utm_medium=button&utm_term=sahatyalkabov&utm_campaign=github)
-[![OpenCollective](https://opencollective.com/satellizer/backers/badge.svg)](#backers)
-[![OpenCollective](https://opencollective.com/satellizer/sponsors/badge.svg)](#sponsors)
-
-[**Live Demo**](https://satellizer-sahat.rhcloud.com)
+Updated by Preet
+ Added Role to local storage, when login successfull, accessible by getRole() API
 
 ---
 
@@ -619,6 +608,7 @@ width="150" />
 - [`$auth.link(name, [userData])`](#authlinkname-userdata)
 - [`$auth.unlink(name, [options])`](#authunlinkname-options)
 - [`$auth.getToken()`](#authgettoken)
+- [`$auth.getRole()`](#authgetrole)
 - [`$auth.getPayload()`](#authgetpayload)
 - [`$auth.setToken(token)`](#authsettokentoken)
 - [`$auth.removeToken()`](#authremovetoken)
@@ -843,6 +833,10 @@ $auth.getToken();
 ```
 
 <hr>
+
+### `$auth.getRole()`
+Returns Role string from Local Storage
+
 
 #### `$auth.getPayload()`
 
